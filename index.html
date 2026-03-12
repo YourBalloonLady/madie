@@ -1,105 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Madison Borough FC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madison Borough FC</title>
 
-<style>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      background:#111;
+      color:white;
+      line-height:1.6;
+    }
 
-body{
-font-family:Arial;
-margin:0;
-background:#111;
-color:white;
-}
+    header{
+      background:#8b0000;
+      padding:30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+      border-bottom:3px solid gold;
+    }
 
-header{
-background:#8b0000;
-padding:30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    .logo{
+      font-size:32px;
+      font-weight:bold;
+      color:gold;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
 
-.logo{
-font-size:32px;
-font-weight:bold;
-color:gold;
-display:flex;
-align-items:center;
-gap:15px;
-}
+    .logo img{
+      height:80px;
+      width:auto;
+      display:block;
+    }
 
-.menu{
-font-size:26px;
-cursor:pointer;
-}
+    .menu{
+      font-size:30px;
+      color:white;
+      cursor:pointer;
+    }
 
-.hero{
-padding:60px;
-text-align:center;
-background:#1a1a1a;
-}
+    .hero{
+      padding:70px 20px;
+      text-align:center;
+      background:linear-gradient(to bottom, #1a1a1a, #111);
+      border-bottom:2px solid #333;
+    }
 
-.section{
-padding:40px;
-max-width:900px;
-margin:auto;
-}
+    .hero h1{
+      font-size:48px;
+      margin-bottom:10px;
+      color:gold;
+    }
 
-.job{
-background:#222;
-padding:20px;
-border-left:5px solid gold;
-margin-top:20px;
-}
+    .hero p{
+      font-size:20px;
+      margin:0;
+      color:#ddd;
+    }
 
-button{
-background:#c40000;
-color:white;
-border:none;
-padding:10px 20px;
-cursor:pointer;
-}
+    .section{
+      padding:50px 20px;
+      max-width:1000px;
+      margin:auto;
+    }
 
-</style>
+    h2{
+      color:gold;
+      font-size:32px;
+      margin-bottom:20px;
+      border-bottom:2px solid #8b0000;
+      padding-bottom:10px;
+    }
+
+    h3{
+      color:gold;
+      margin-top:0;
+    }
+
+    .card{
+      background:#1c1c1c;
+      padding:25px;
+      margin-top:25px;
+      border-left:6px solid gold;
+      border-radius:8px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .subheading{
+      color:#ffcc66;
+      font-size:20px;
+      margin-top:25px;
+      margin-bottom:10px;
+    }
+
+    ul{
+      padding-left:22px;
+    }
+
+    li{
+      margin-bottom:10px;
+    }
+
+    .highlight{
+      color:gold;
+      font-weight:bold;
+    }
+
+    .button{
+      display:inline-block;
+      background:#c40000;
+      color:white;
+      text-decoration:none;
+      border:none;
+      padding:12px 22px;
+      margin-top:15px;
+      font-size:16px;
+      font-weight:bold;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .button:hover{
+      background:#e00000;
+    }
+
+    footer{
+      background:#8b0000;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      border-top:3px solid gold;
+    }
+
+    @media (max-width: 700px){
+      .logo{
+        font-size:22px;
+      }
+
+      .logo img{
+        height:60px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      h2{
+        font-size:26px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">
-<img src="MB Badge.png" style="height:80px;">
-Madison Borough FC
-</div>
-<div class="menu">☰</div>
-</header>
+  <header>
+    <div class="logo">
+      <img src="MB Badge.png" alt="Madison Borough FC Badge">
+      Madison Borough FC
+    </div>
+    <div class="menu">☰</div>
+  </header>
 
-<div class="hero">
-<h1>Madison Borough FC</h1>
-<p>Pride • Passion • Progress</p>
-</div>
+  <div class="hero">
+    <h1>Madison Borough FC</h1>
+    <p>Pride • Passion • Progress</p>
+  </div>
 
-<div class="section">
-<h2>Career Opportunities</h2>
+  <div class="section">
+    <h2>Career Opportunities</h2>
 
-<div class="job">
-<h3>Sports Psychologist</h3>
+    <div class="card">
+      <h3>Job Advert</h3>
+      <p><span class="highlight">Sports Psychologist</span></p>
+      <p><span class="highlight">Madison Borough FC</span></p>
 
-<p>Madison Borough FC is looking for a sports psychologist to support players with mental performance, confidence and focus.</p>
+      <p>
+        Madison Borough FC is seeking a motivated and passionate
+        <strong>Sports Psychologist</strong> to support the mental wellbeing and
+        performance of players across the club.
+      </p>
 
-<p><b>Responsibilities</b></p>
+      <p>
+        The successful candidate will work with players and coaching staff to
+        develop confidence, focus, resilience, and a positive performance mindset
+        both on and off the pitch.
+      </p>
 
-<ul>
-<li>Support player mindset and confidence</li>
-<li>Work with coaches and academy players</li>
-<li>Deliver mental performance sessions</li>
-</ul>
+      <p>
+        This is an exciting opportunity to be part of a forward-thinking football
+        club committed to player development and wellbeing.
+      </p>
 
-<button>Apply Now</button>
+      <p><strong>Location:</strong> Madison Borough Training Ground</p>
+      <p><strong>Position Type:</strong> Part-time / Consultant</p>
+      <p><strong>Salary:</strong> Competitive / Depending on experience</p>
 
-</div>
-</div>
+      <a href="#" class="button">Apply Now</a>
+    </div>
+
+    <div class="card">
+      <h3>Job Description</h3>
+
+      <p><strong>Job Title:</strong> Sports Psychologist</p>
+      <p><strong>Department:</strong> Performance &amp; Player Support</p>
+      <p><strong>Location:</strong> Madison Borough Training Ground</p>
+
+      <div class="subheading">Role Purpose</div>
+      <p>
+        To support the psychological wellbeing, confidence, resilience, and
+        performance of players at Madison Borough FC.
+      </p>
+
+      <div class="subheading">Key Responsibilities</div>
+      <ul>
+        <li>Provide one-to-one support sessions with players.</li>
+        <li>Deliver workshops on confidence, focus, and performance mindset.</li>
+        <li>Support players dealing with pressure, setbacks, or injuries.</li>
+        <li>Work alongside coaches to improve player mental resilience.</li>
+        <li>Support academy players with development and wellbeing.</li>
+        <li>Promote a positive, professional, and supportive team environment.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Person Specification</h3>
+
+      <div class="subheading">Essential Skills and Qualities</div>
+      <ul>
+        <li>Knowledge of psychology or sports psychology.</li>
+        <li>Excellent communication and listening skills.</li>
+        <li>Ability to build trust with players and staff.</li>
+        <li>Interest in football and athlete development.</li>
+        <li>Ability to remain calm and supportive in high-pressure situations.</li>
+      </ul>
+
+      <div class="subheading">Desirable Skills and Qualities</div>
+      <ul>
+        <li>Previous experience working with athletes or sports teams.</li>
+        <li>Understanding of mental performance techniques.</li>
+        <li>Ability to deliver workshops or group sessions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Madison Borough FC | Careers Page
+  </footer>
 
 </body>
 </html>
