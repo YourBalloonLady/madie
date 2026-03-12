@@ -1,0 +1,416 @@
+import { useState } from "react";
+import { Menu, X, ChevronRight, Briefcase, Users, Shield, Mail, MapPin } from "lucide-react";
+
+export default function MadisonBoroughFCWebsite() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { id: "home", label: "Home", icon: Shield },
+    { id: "about", label: "About", icon: Users },
+    { id: "teams", label: "Teams", icon: Users },
+    { id: "careers", label: "Career Opportunities", icon: Briefcase },
+    { id: "contact", label: "Contact", icon: Mail },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(220,38,38,0.18),transparent_25%),radial-gradient(circle_at_top_left,rgba(234,179,8,0.10),transparent_20%)]" />
+
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/85 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <a href="#home" className="flex items-center gap-3">
+            <ClubBadge />
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.35em] text-yellow-300/70">Established 2026</div>
+              <div className="text-lg font-bold sm:text-xl">Madison Borough FC</div>
+            </div>
+          </a>
+
+          <nav className="hidden items-center gap-8 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="text-sm font-medium text-white/80 transition hover:text-yellow-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="rounded-2xl border border-yellow-500/30 bg-red-600 px-4 py-3 text-white transition hover:bg-red-500 md:hidden"
+            aria-label="Open menu"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="border-t border-white/10 bg-neutral-950 md:hidden">
+            <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+              <div className="grid gap-2">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white/85 transition hover:bg-white/10"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Icon className="h-4 w-4 text-yellow-300" />
+                        {item.label}
+                      </span>
+                      <ChevronRight className="h-4 w-4 text-white/40" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      <main className="relative">
+        <section id="home" className="border-b border-white/10">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-24">
+            <div className="self-center">
+              <div className="inline-flex rounded-full border border-yellow-500/25 bg-yellow-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-200">
+                Fictional Club Website Project
+              </div>
+              <h1 className="mt-5 max-w-3xl text-5xl font-black leading-tight tracking-tight sm:text-6xl">
+                Madison Borough FC
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">
+                A bold football club website concept inspired by real professional teams, built around Madison’s initials and designed to include a proper careers section for a Sports Psychologist opportunity.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#careers"
+                  className="rounded-2xl bg-red-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-red-950/40 transition hover:bg-red-500"
+                >
+                  View Careers
+                </a>
+                <a
+                  href="#about"
+                  className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
+                >
+                  Explore Club
+                </a>
+              </div>
+
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                <StatCard value="MB" label="Club Initials" />
+                <StatCard value="Red/Gold" label="Official Colours" />
+                <StatCard value="1 Featured Role" label="Live Vacancy" />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <div className="w-full max-w-lg rounded-[2rem] border border-yellow-500/20 bg-gradient-to-br from-red-950 via-black to-black p-6 shadow-2xl shadow-black/50">
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
+                  <div className="flex items-center justify-center">
+                    <ClubBadge large />
+                  </div>
+                  <div className="mt-6 text-center">
+                    <div className="text-sm uppercase tracking-[0.3em] text-yellow-300/75">Club Motto</div>
+                    <div className="mt-2 text-2xl font-bold">Pride • Passion • Progress</div>
+                    <p className="mt-3 text-sm leading-6 text-white/65">
+                      A dramatic, professional-looking crest that feels like a real football club identity for Madison’s project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <div className="text-sm uppercase tracking-[0.28em] text-yellow-300">About the club</div>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">A modern football identity built around Madison</h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            <InfoCard
+              title="Club Name"
+              text="Madison Borough FC was chosen because it sounds believable, strong, and professional, while still tying back to Madison’s initials."
+              icon={<Shield className="h-5 w-5 text-yellow-300" />}
+            />
+            <InfoCard
+              title="Badge Style"
+              text="The crest uses red and gold, a shield shape, laurel details, and bold MB initials to make it feel like a real English club badge."
+              icon={<Shield className="h-5 w-5 text-yellow-300" />}
+            />
+            <InfoCard
+              title="Website Goal"
+              text="The page is designed to look like a professional football site, with a menu, hero section, careers area, and editable text for Madison’s project."
+              icon={<Users className="h-5 w-5 text-yellow-300" />}
+            />
+          </div>
+        </section>
+
+        <section id="teams" className="border-y border-white/10 bg-white/[0.03]">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <div className="text-sm uppercase tracking-[0.28em] text-yellow-300">Teams</div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Club structure</h2>
+              </div>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <TeamCard title="First Team" text="The main competitive squad representing Madison Borough FC on matchdays." />
+              <TeamCard title="Academy" text="A pathway for young talent, development, support, and future progression within the club." />
+              <TeamCard title="Women & Girls" text="An inclusive setup focused on development, confidence, opportunity, and performance." />
+            </div>
+          </div>
+        </section>
+
+        <section id="careers" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <div className="text-sm uppercase tracking-[0.28em] text-yellow-300">Career opportunities</div>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Work with Madison Borough FC</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-white/70">
+              This section is built exactly for what Madison described — a club website with a menu option for careers, and a page where she can add an advert for a Sports Psychologist role.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+            <article className="rounded-[2rem] border border-yellow-500/20 bg-gradient-to-br from-red-950/70 via-black to-black p-7 shadow-2xl shadow-black/30">
+              <div className="inline-flex items-center rounded-full border border-yellow-500/20 bg-yellow-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-200">
+                Featured Vacancy
+              </div>
+
+              <h3 className="mt-5 text-3xl font-black tracking-tight">Sports Psychologist</h3>
+              <div className="mt-3 flex flex-wrap gap-3 text-sm text-white/65">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Part-time / Consultant</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Competitive</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Madison Borough Training Ground</span>
+              </div>
+
+              <p className="mt-6 text-base leading-7 text-white/75">
+                Madison Borough FC is seeking a Sports Psychologist to support the mental wellbeing, confidence, focus, and performance of players across the club. The successful applicant will work closely with players and staff to create a positive, resilient, high-performance environment.
+              </p>
+
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <DetailBlock
+                  title="Key responsibilities"
+                  items={[
+                    "Support players with confidence, mindset, and focus",
+                    "Deliver 1-to-1 and group psychology sessions",
+                    "Help with matchday preparation and mental recovery",
+                    "Work alongside coaching staff and academy support teams",
+                  ]}
+                />
+                <DetailBlock
+                  title="What we’re looking for"
+                  items={[
+                    "A background in psychology or sport psychology",
+                    "Great communication and listening skills",
+                    "Confidence working with young athletes and staff",
+                    "A positive, professional, player-first approach",
+                  ]}
+                />
+              </div>
+
+              <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="text-sm font-semibold text-yellow-200">Application details</div>
+                <p className="mt-2 text-sm leading-6 text-white/70">
+                  Applicants should submit a CV and covering letter outlining their experience, qualifications, and approach to supporting player wellbeing and performance.
+                </p>
+              </div>
+            </article>
+
+            <aside className="grid gap-6">
+              <SidebarCard
+                title="Why this page works"
+                text="It mirrors the structure Madison described: football club style, proper menu, and a dedicated place to write the sports psychologist advert."
+              />
+              <SidebarCard
+                title="Easy to customise"
+                text="You can change the role title, club name, responsibilities, location, and application instructions without changing the whole design."
+              />
+              <SidebarCard
+                title="Project-ready"
+                text="This already looks like a believable club website page, so it’s a strong starting point for a school or college-style project."
+              />
+            </aside>
+          </div>
+        </section>
+
+        <section id="contact" className="border-t border-white/10 bg-black/60">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
+              <div>
+                <div className="text-sm uppercase tracking-[0.28em] text-yellow-300">Contact</div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Get in touch with the club</h2>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">
+                  A final contact section makes the website feel complete and professional. It also gives Madison another area where she can write and personalise details herself.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                <ContactRow icon={<Mail className="h-5 w-5" />} label="Email" value="careers@madisonboroughfc.co.uk" />
+                <ContactRow icon={<MapPin className="h-5 w-5" />} label="Location" value="Madison Borough Training Ground" />
+                <ContactRow icon={<Briefcase className="h-5 w-5" />} label="Main opportunity" value="Sports Psychologist" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function StatCard({ value, label }) {
+  return (
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+      <div className="text-2xl font-black text-yellow-200">{value}</div>
+      <div className="mt-1 text-sm text-white/60">{label}</div>
+    </div>
+  );
+}
+
+function InfoCard({ title, text, icon }) {
+  return (
+    <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-xl shadow-black/20">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10">
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="mt-3 text-sm leading-6 text-white/70">{text}</p>
+    </div>
+  );
+}
+
+function TeamCard({ title, text }) {
+  return (
+    <div className="rounded-[2rem] border border-white/10 bg-black/70 p-6 shadow-xl shadow-black/20">
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="mt-3 text-sm leading-6 text-white/70">{text}</p>
+    </div>
+  );
+}
+
+function DetailBlock({ title, items }) {
+  return (
+    <div>
+      <h4 className="text-lg font-bold">{title}</h4>
+      <ul className="mt-4 space-y-3 text-sm text-white/72">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3">
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-300" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function SidebarCard({ title, text }) {
+  return (
+    <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+      <h4 className="text-lg font-bold">{title}</h4>
+      <p className="mt-3 text-sm leading-6 text-white/70">{text}</p>
+    </div>
+  );
+}
+
+function ContactRow({ icon, label, value }) {
+  return (
+    <div className="flex items-center gap-4 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10 text-yellow-300">
+        {icon}
+      </div>
+      <div>
+        <div className="text-sm text-white/55">{label}</div>
+        <div className="font-semibold text-white">{value}</div>
+      </div>
+    </div>
+  );
+}
+
+function ClubBadge({ large = false }) {
+  const size = large ? "h-56 w-56" : "h-14 w-14";
+
+  return (
+    <div className={`flex items-center justify-center ${size}`}>
+      <svg viewBox="0 0 220 260" className="h-full w-full drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+        <defs>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#fff2a8" />
+            <stop offset="38%" stopColor="#facc15" />
+            <stop offset="100%" stopColor="#a16207" />
+          </linearGradient>
+          <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#991b1b" />
+            <stop offset="55%" stopColor="#dc2626" />
+            <stop offset="100%" stopColor="#450a0a" />
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M110 18 L183 43 V113 C183 162 153 205 110 232 C67 205 37 162 37 113 V43 Z"
+          fill="url(#redGrad)"
+          stroke="url(#goldGrad)"
+          strokeWidth="8"
+        />
+
+        <path
+          d="M78 18 L110 2 L142 18 L156 36 L64 36 Z"
+          fill="url(#goldGrad)"
+          opacity="0.95"
+        />
+        <circle cx="110" cy="7" r="6" fill="url(#goldGrad)" />
+        <circle cx="78" cy="18" r="5" fill="url(#goldGrad)" />
+        <circle cx="142" cy="18" r="5" fill="url(#goldGrad)" />
+
+        <text
+          x="110"
+          y="112"
+          textAnchor="middle"
+          fill="url(#goldGrad)"
+          fontSize="74"
+          fontWeight="900"
+          fontFamily="Georgia, serif"
+          letterSpacing="1"
+        >
+          MB
+        </text>
+
+        <g opacity="0.95">
+          <path d="M55 126 C37 138, 33 170, 40 192 C48 178, 51 163, 55 126 Z" fill="url(#goldGrad)" />
+          <path d="M65 132 C49 146, 46 177, 54 200 C60 187, 64 171, 65 132 Z" fill="url(#goldGrad)" />
+          <path d="M165 126 C183 138, 187 170, 180 192 C172 178, 169 163, 165 126 Z" fill="url(#goldGrad)" />
+          <path d="M155 132 C171 146, 174 177, 166 200 C160 187, 156 171, 155 132 Z" fill="url(#goldGrad)" />
+        </g>
+
+        <circle cx="110" cy="178" r="22" fill="#ffffff" stroke="#111111" strokeWidth="3" />
+        <path d="M110 158 L121 166 L117 180 H103 L99 166 Z" fill="#111111" />
+        <path d="M88 174 L99 166 L103 180 L94 188 Z" fill="#111111" />
+        <path d="M132 174 L121 166 L117 180 L126 188 Z" fill="#111111" />
+
+        <path
+          d="M46 116 C36 106, 32 90, 39 76 C49 83, 57 95, 62 110"
+          fill="none"
+          stroke="url(#goldGrad)"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+        <path
+          d="M174 116 C184 106, 188 90, 181 76 C171 83, 163 95, 158 110"
+          fill="none"
+          stroke="url(#goldGrad)"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
+  );
+}
