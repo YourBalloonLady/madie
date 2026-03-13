@@ -131,6 +131,50 @@
       background:#e00000;
     }
 
+    .form-group{
+      margin-bottom:20px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:bold;
+      color:#ffcc66;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      padding:12px;
+      border-radius:6px;
+      border:1px solid #555;
+      background:#222;
+      color:white;
+      font-size:16px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .submit-btn{
+      background:gold;
+      color:#111;
+      border:none;
+      padding:14px 24px;
+      font-size:16px;
+      font-weight:bold;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .submit-btn:hover{
+      background:#ffd700;
+    }
+
     footer{
       background:#8b0000;
       color:white;
@@ -207,7 +251,7 @@
       <p><strong>Position Type:</strong> Part-time / Consultant</p>
       <p><strong>Salary:</strong> Competitive / Depending on experience</p>
 
-      <a href="#" class="button">Apply Now</a>
+      <a href="#application-form" class="button">Apply Now</a>
     </div>
 
     <div class="card">
@@ -220,16 +264,23 @@
       <div class="subheading">Role Purpose</div>
       <p>
         To support the psychological wellbeing, confidence, resilience, and
-        performance of players at Madison Borough FC.
+        performance of players at Madison Borough FC. The role includes helping
+        players to manage pressure and anxiety, teaching coping strategies for
+        high-pressure situations, and supporting mental preparation for training
+        and matches. The Sports Psychologist will also play an important role in
+        aiding team cohesion, encouraging positive relationships within squads,
+        and helping to create a united, supportive, high-performing environment.
       </p>
 
       <div class="subheading">Key Responsibilities</div>
       <ul>
         <li>Provide one-to-one support sessions with players.</li>
         <li>Deliver workshops on confidence, focus, and performance mindset.</li>
-        <li>Support players dealing with pressure, setbacks, or injuries.</li>
+        <li>Support players dealing with pressure, anxiety, setbacks, or injuries.</li>
+        <li>Teach coping strategies for high-pressure sporting situations.</li>
         <li>Work alongside coaches to improve player mental resilience.</li>
         <li>Support academy players with development and wellbeing.</li>
+        <li>Aid team cohesion and promote strong working relationships within squads.</li>
         <li>Promote a positive, professional, and supportive team environment.</li>
       </ul>
     </div>
@@ -241,17 +292,72 @@
       <ul>
         <li>Knowledge of psychology or sports psychology.</li>
         <li>Excellent communication and listening skills.</li>
-        <li>Ability to build trust with players and staff.</li>
+        <li>Ability to build trust and rapport with players and staff.</li>
+        <li>Strong empathy and people skills.</li>
         <li>Interest in football and athlete development.</li>
         <li>Ability to remain calm and supportive in high-pressure situations.</li>
+        <li>A real passion for sports psychology and player development.</li>
+        <li>Ability to communicate clearly with a range of ages and ability levels.</li>
+        <li>Enhanced DBS check or willingness to obtain one.</li>
       </ul>
 
       <div class="subheading">Desirable Skills and Qualities</div>
       <ul>
         <li>Previous experience working with athletes or sports teams.</li>
+        <li>Previous exposure to high-performance environments.</li>
         <li>Understanding of mental performance techniques.</li>
         <li>Ability to deliver workshops or group sessions.</li>
+        <li>CPD certificates in specialist or niche areas of sport psychology.</li>
+        <li>Academic or research experience in newer psychological techniques and methods.</li>
+        <li>Awareness of current research and evidence-based approaches in sports psychology.</li>
       </ul>
+    </div>
+
+    <div class="card" id="application-form">
+      <h3>Application Form</h3>
+
+      <form>
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-group">
+          <label for="qualification">Main Qualification</label>
+          <input type="text" id="qualification" name="qualification" placeholder="Enter your main qualification">
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Previous Experience</label>
+          <textarea id="experience" name="experience" placeholder="Describe your relevant experience"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Why are you suitable for this role?</label>
+          <textarea id="skills" name="skills" placeholder="Explain why you are suitable for this role"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dbs">DBS Status</label>
+          <select id="dbs" name="dbs">
+            <option>DBS Checked</option>
+            <option>Willing to Obtain DBS Check</option>
+            <option>Not Currently Held</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+      </form>
     </div>
   </div>
 
